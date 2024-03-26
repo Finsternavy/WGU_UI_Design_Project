@@ -21,14 +21,14 @@
 
 <style scoped>
 .nav-btn {
-  @apply px-2 py-1 h-full rounded-md text-primaryDark font-bold uppercase;
+  @apply px-2 py-1 h-full rounded-md text-primaryDark uppercase;
   transition: all 0.3s ease;
 }
 .btn-hover {
-  @apply hover:bg-accent hover:bg-primaryDark hover:text-secondary;
+  @apply hover:bg-secondaryDark hover:text-white;
 }
 .nav-btn-alt {
-  @apply px-2 py-1 rounded-md bg-secondary text-primaryDark;
+  @apply px-2 py-1 rounded-md bg-secondary text-primaryDark uppercase;
   transition: all 0.3s ease;
 }
 
