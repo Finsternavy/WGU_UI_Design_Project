@@ -1,14 +1,10 @@
 # UI_Design_Project
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+To run this project perform the following tasks:
+- [ ] open the folder in an IDE (Recommend Visual Studio Code)
+- [ ] Run the following command in the terminal: npm install
+- [ ] Run the following command in the terminal: npm run dev
+- [ ] You may need to ctrl + click the local url displayed in the terminal to open to page
 
 ## Project Setup
 

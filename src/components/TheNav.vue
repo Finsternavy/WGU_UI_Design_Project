@@ -11,7 +11,7 @@ const setActiveRoute = (route) => {
   <div class="nav-after w-full bg-primaryDark border-b-2 z-30 flex">
     <div class="w-[200px] bg-secondary pl-10 pr-10 pt-0.5 rounded-r-full">
       <router-link @click="setActiveRoute('/')" to="/" class="max-w-4 overflow-hidden">
-        <img src="../assets/images/logo.png" alt="logo" class="max-w-[100px]" />
+        <img src="../assets/images/logo.png" alt="logo" class="max-w-[90px] pt-0.5" />
       </router-link>
     </div>
     <div class="container flex items-center justify-center px-4 py-2 m-auto">
