@@ -38,7 +38,9 @@ const data = [
       <h1 class="text-center font-bold text-secondaryDark">Dogs</h1>
       <div class="md:flex gap-10 items-center mr-auto ml-auto container p-8 rounded-lg">
         <div class="md:w-2/3 pb-4">
-          The domestic dog is an extremely social animal and offers a diverse variety of choices as there are well over 300 breeds recognized by the World Canine Organization. Adopting a dog offers mutual benefits between dog and owner. Many studies cite the social benefits of having a companion as well as the reduced feelings of loneliness from adopting a dog. Studies even show medical indicators such as reduced blood pressure and improved lipid profiles. If you have a dog, it is important to make sure that you care for your dog; be mindful of what you feed your dog and provide enough opportunities for exercise. In this page, you will find more information about how to care for your pets throughout the various stages of their lives.
+          The domestic dog is an extremely social animal and offers a diverse variety of choices as there are well over 300 breeds recognized by the World Canine Organization. Adopting a dog offers mutual benefits between dog and owner. Many studies cite the social benefits of having a companion as well as the reduced feelings of loneliness from adopting a dog. Studies even show medical indicators such as 
+          <a href="https://www.ahajournals.org/doi/10.1161/CIRCOUTCOMES.119.005554" target="_blank" class="text-blue-600">reduced blood pressure and improved lipid profiles</a>
+          . If you have a dog, it is important to make sure that you care for your dog; be mindful of what you feed your dog and provide enough opportunities for exercise. In this page, you will find more information about how to care for your pets throughout the various stages of their lives.
         </div>
         <div class="md:w-1/3 md:m-0 min-h-[200px] md:h-fit overflow-hidden par-1-image rounded-lg" >
         </div>

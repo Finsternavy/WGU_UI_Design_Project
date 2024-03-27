@@ -1,31 +1,46 @@
 <script setup>
 import { ref } from 'vue';
-
 const activeRoute = ref('');
 
 const setActiveRoute = (route) => {
   activeRoute.value = route;
 }
+
+const mobileMenuOpen = ref(false);
+
+const toggleMobileMenu = () => {
+  mobileMenuOpen.value = !mobileMenuOpen.value;
+}
 </script>
 <template>
-  <div class="nav-after w-full bg-primaryDark border-b-2 z-30 flex">
+  <div class="nav-after w-full bg-primaryDark border-b-2 z-30 flex h-[50px]">
     <div class="w-[200px] bg-secondary pl-10 pr-10 pt-0.5 rounded-r-full">
       <router-link @click="setActiveRoute('/')" to="/" class="max-w-4 overflow-hidden">
         <img src="../assets/images/logo.png" alt="logo" class="max-w-[90px] pt-0.5" />
       </router-link>
     </div>
-    <div class="container flex items-center justify-center px-4 py-2 m-auto">
-      <div class="w-auto flex gap-4">
-        <router-link @click="setActiveRoute('/dogs')" to="/dogs" class="nav-btn btn-hover" :class="{'active': activeRoute === '/dogs'}">Dogs</router-link>
-        <router-link @click="setActiveRoute('/cats')" to="/cats" class="nav-btn btn-hover" :class="{'active': activeRoute === '/cats'}">Cats</router-link>
-        <router-link @click="setActiveRoute('/fish')" to="/fish" class="nav-btn btn-hover" :class="{'active': activeRoute === '/fish'}">Fish</router-link>
+    <div class="container flex items-center justify-center px-4 py-2 m-auto md:visible">
+      <div class="hidden md:block">
+        <div class="w-auto flex gap-4">
+          <router-link @click="setActiveRoute('/dogs')" to="/dogs" class="nav-btn btn-hover" :class="{'active': activeRoute === '/dogs'}">Dogs</router-link>
+          <router-link @click="setActiveRoute('/cats')" to="/cats" class="nav-btn btn-hover" :class="{'active': activeRoute === '/cats'}">Cats</router-link>
+          <router-link @click="setActiveRoute('/fish')" to="/fish" class="nav-btn btn-hover" :class="{'active': activeRoute === '/fish'}">Fish</router-link>
+        </div>
+      </div>
+      <div class="visible md:hidden rotate-90">
+        <button @click="toggleMobileMenu" class="text-secondary">|||</button>
       </div>
     </div>
-    <div class="w-[200px] flex items-center justify-center bg-secondary rounded-l-full hover:bg-secondaryDark overflow-hidden">
+    <div class="min-w-[170px] flex items-center justify-center bg-secondary rounded-l-full hover:bg-secondaryDark overflow-hidden">
       <router-link @click="setActiveRoute('/about-us')" to="/about-us" class="nav-btn-alt flex items-center justify-center" :class="{'active': activeRoute === '/about-us'}">
         <span>About Us</span>
       </router-link>
     </div>
+  </div>
+  <div v-if="mobileMenuOpen" class="flex flex-col gap-4 text-center bg-primaryDark p-4">
+    <router-link @click="setActiveRoute('/dogs')" to="/dogs" class="nav-btn btn-hover" :class="{'active': activeRoute === '/dogs'}">Dogs</router-link>
+    <router-link @click="setActiveRoute('/cats')" to="/cats" class="nav-btn btn-hover" :class="{'active': activeRoute === '/cats'}">Cats</router-link>
+    <router-link @click="setActiveRoute('/fish')" to="/fish" class="nav-btn btn-hover" :class="{'active': activeRoute === '/fish'}">Fish</router-link>
   </div>
 </template>
 
