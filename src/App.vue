@@ -4,10 +4,10 @@ import TheNav from './components/TheNav.vue'
 </script>
 
 <template>
-  <header>
+  <nav class="padding-none sticky top-0 z-40 p-0 m-0 bg-red-400">
     <TheNav />
-  </header>
-
+  </nav>
+  
   <body class="">
     <RouterView />
   </body>

@@ -1,63 +1,80 @@
 <script setup>
 import { ref } from 'vue';
+import router from '../router/router.js';
 import ContactForm from '../components/ContactForm.vue';
 
 const resources = ref([
   {
     name: 'General Adoption Resources',
-    link: 'https://www.petfinder.com/',
+    link: 'https://theshelterpetproject.org/',
   },
   {
     name: 'ASPCA',
-    link: 'https://www.akc.org/dog-breeds/rescue-network/',
+    link: 'https://www.aspca.org/ ',
   },
   {
     name: 'Fish Rescue',
-    link: 'https://www.petfinder.com/cats/',
+    link: 'https://www.sterlingshelter.org/humane-society/koi-fish-rescue/',
   },
   {
     name: 'Snake Rescue',
-    link: 'https://www.petco.com/shop/en/petcostore/category/fish',
+    link: 'https://savethesnakes.org/snakerescuecall/',
   },
   {
     name: 'Bird Rescue',
-    link: 'https://www.petco.com/shop/en/petcostore/category/fish',
+    link: 'https://ftlob.rescuegroups.org/',
   },
 ])
+
+const navigate = (route) => {
+  console.log("Routing to: ", route)
+  router.push(route);
+}
+
+const scrollToForm = () => {
+  let doc = document.getElementById('ContactForm')
+  doc.scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => {
+    let firstField = document.getElementById('contactFirstName')
+    firstField.focus();
+  }, 500);
+}
 </script>
 
 <template>
-  <div class="hero flex items-center bg-secondary relative">
+  <div class="hero flex items-center relative pt-12">
     <div class="hero-content w-full m-auto text-center mb-4 p-10">
       <img src="../assets/images/logo.png" alt="logo" class="hero-logo m-auto z-10" />
       <h2 class="slogan mb-4 mt-4 text-sm md:text-2xl">Evidence-based pet care advice for every pet lover</h2>
       <div class="sm:flex justify-center sm:gap-4 w-full items-center">
-        <button class="btn mb-2 sm:mb-0">Contact our "Pexperts"</button>
-        <button class="btn-alt">About Us</button>
+        <button class="btn mb-2 sm:mb-0" @click="scrollToForm">Contact our "Pexperts"</button>
+        <button class="btn-alt" @click="navigate('about-us')">About Us</button>
       </div>
     </div>
   </div>
-  <div class="pt-36 pb-16">
-    <div class="md:flex gap-10 items-center mr-auto ml-auto container">
-      <div class="md:w-1/2 p-4">
-        Pets are nature's gift to humanity. It has been scientifically proven that opening our homes and hearts to a pet increases our longevity and improves our overall quality of life as well as the lives of our pets.
-      </div>
-      <div class="md:w-1/2 ml-5 mr-5 md:m-0 min-h-[200px] md:h-[300px] overflow-hidden par-1-image rounded-lg" >
-      </div>
-    </div>
-  </div>
-  <div class="pb-16">
-    <div class="md:flex gap-10 md:flex-row-reverse items-center mr-auto ml-auto container">
-      <div class="w-full md:w-1/2 p-4">
-        At Pet Paradigm Professionals, our mission is to offer resources to help you care for your furry, scaly, feathery, and slimy loved ones. Our pet experts—or “Pexperts”—have been working with pet owners and professionals alike for the past twelve years. They offer one-on-one consultations with current and prospective pet owners as well as group presentations designed for veterinary, pet shelter, and pet breeding professionals.
-      </div>
-      <div class="md:w-1/2 ml-5 mr-5 md:m-0 min-h-[200px] md:h-[300px] overflow-hidden par-2-image rounded-lg" >
+  <div class="bg-primaryDark">
+    <div class="p-4 pt-16 pb-8">
+      <div class="md:flex gap-10 items-center mr-auto ml-auto container bg-secondary p-8 shadow-xl rounded-lg">
+        <div class="md:w-2/3 pb-4">
+          Pets are nature's gift to humanity. It has been scientifically proven that opening our homes and hearts to a pet increases our longevity and improves our overall quality of life as well as the lives of our pets.
+        </div>
+        <div class="md:w-1/3 md:m-0 min-h-[200px] md:h-fit overflow-hidden par-1-image rounded-lg" >
+        </div>
       </div>
     </div>
-  </div>
-  <div class="pb-36">
-    <div class="p-4 mr-auto ml-auto container text-center">
-      Looking for basic pet care advice for the most common type of pets? Need additional help determining which type of pet is right for you and your family? We will work with you and provide tailored evidence-based pet care to ensure lifelong health and wellness of your new companion. 
+    <div class="p-4 pb-8">
+      <div class="md:flex gap-10 md:flex-row-reverse items-center mr-auto ml-auto container bg-secondary shadow-xl rounded-lg p-8">
+        <div class="w-full md:w-2/3 pb-4">
+          At Pet Paradigm Professionals, our mission is to offer resources to help you care for your furry, scaly, feathery, and slimy loved ones. Our pet experts—or “Pexperts”—have been working with pet owners and professionals alike for the past twelve years. They offer one-on-one consultations with current and prospective pet owners as well as group presentations designed for veterinary, pet shelter, and pet breeding professionals.
+        </div>
+        <div class="md:w-1/3 md:m-0 min-h-[200px] md:h-fit overflow-hidden par-2-image rounded-lg" >
+        </div>
+      </div>
+    </div>
+    <div class="p-4 pb-16">
+      <div class="p-4 mr-auto ml-auto container text-center bg-secondary shadow-xl rounded-lg">
+        Looking for basic pet care advice for the most common type of pets? Need additional help determining which type of pet is right for you and your family? We will work with you and provide tailored evidence-based pet care to ensure lifelong health and wellness of your new companion. 
+      </div>
     </div>
   </div>
   <div class="bg-secondary pt-12">
@@ -68,17 +85,16 @@ const resources = ref([
     <div>
       <ul class="p-4 pb-16 flex flex-wrap justify-center gap-4 container ml-auto mr-auto">
         <li class="w-[150px]" v-for="resource in resources" :key="resource.name">
-          <a :href="resource.link" class="resource-link"><span>{{ resource.name }}</span></a>
+          <a :href="resource.link" target="_blank" class="resource-link"><span>{{ resource.name }}</span></a>
         </li>
+        <p class="p-4 pt-8 pb-0">
+          We are also happy to help you navigate the adoption process! We will guide you through each step in the process from determining which type of pet is best suited for your family and home environment, to completing the necessary paperwork, to bringing your new loved one home. Please fill out our contact form to request a consultation. We will contact you within 48 hours to schedule a consultation. All fields are required.
+        </p>
       </ul>
     </div>
   </div>
-  <div class="container flex flex-col justify-center ml-auto mr-auto">
-    <p class="p-4 pt-16 pb-8">
-      We are also happy to help you navigate the adoption process! We will guide you through each step in the process from determining which type of pet is best suited for your family and home environment, to completing the necessary paperwork, to bringing your new loved one home. Please fill out our contact form to request a consultation. We will contact you within 48 hours to schedule a consultation. All fields are required.
-    </p>
-    <h2 class="text-center font-bold text-secondaryDark pb-4">CONTACT OUR PEXPERTS</h2>
-    <ContactForm />
+  <div class="container flex flex-col justify-center ml-auto mr-auto mt-16 p-4">
+      <ContactForm id="ContactForm" />
   </div>
 </template>
 

@@ -41,7 +41,7 @@ let props = defineProps({
 <template>
     <div class="flex flex-col relative">
         <label class="absolute uppercase text-sm" :for="props.id">{{ props.label }}</label>
-        <input v-if="props.type === 'text'" :id="props.id" :type="props.type" :placeholder="props.placeholder"  :value="model">
+        <input v-if="props.type !== 'select'" :id="props.id" :type="props.type" :placeholder="props.placeholder"  :value="model">
         <select v-if="props.type === 'select'" :name="props.id" :id="props.id">
             <option value="" selected disabled></option>
             <option v-for="option in options" :key="option.key" :value="option.value">{{ option.value }}</option>
@@ -52,10 +52,10 @@ let props = defineProps({
 <style scoped>
     input,
     select {
-        @apply border-2 border-secondary rounded-md p-2 text-secondaryDark;
+        @apply border-2 border-secondary rounded-md p-4 mb-5 text-secondaryDark h-[56px];
     }
     label {
-        top: -10px;
+        top: -9px;
         left: 16px;
         background-color: white;
         padding: 0 4px;
